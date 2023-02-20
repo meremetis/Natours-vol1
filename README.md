@@ -1,2 +1,2 @@
 # Naturs-vol1
-Naturs bol 1
+Naturs vol 1
