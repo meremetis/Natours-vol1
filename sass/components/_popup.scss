@@ -9,6 +9,8 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  background-color: rgba($color-black, $alpha: 0.3);
 
   // OPEN STATE
   &:target {
@@ -58,6 +60,13 @@
   &__left {
     width: 33.333%;
     display: table-cell;
+
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+
+      @include cleafix();
+    }
   }
 
   &__right {
@@ -65,11 +74,38 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    @include respond(phone) {
+      text-align: center;
+      padding: 1.5rem 2.5rem;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+    @include respond(tab-port) {
+      width: 50%;
+
+      float: left;
+      height: 30rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+
+      float: left;
+      height: 30rem;
+
+      &:last-child {
+        display: none;
+      }
+    }
   }
 
   &__text {
@@ -81,5 +117,10 @@
     column-rule: 1px solid $color-grey-light-2;
 
     hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+      text-align: center;
+    }
   }
 }
